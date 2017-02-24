@@ -1,0 +1,7 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/cyborg/.nuget/packages"
+    ]
+  }
+}
