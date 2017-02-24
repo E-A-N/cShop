@@ -12,6 +12,7 @@ class nameAndNum {
     private string name;
     private int number;
     private int decision;
+    private int answer;
 
     //setters
     private void setName(){
@@ -46,27 +47,34 @@ class nameAndNum {
           case 1:
               msg = "You wish to add all of the numbers from 0  to {0}! Cool {1}!";
               Console.WriteLine(msg,this.number,this.name);
+              this.additionRoute();
               break;
 
           case 2:
               msg = "You wish to multiply all of the numbers from 0 to {0}! That\'s pretty awesome {1}!";
               Console.WriteLine(msg,this.number,this.name);
+              this.multiplicationRoute();
               break;
 
           case 0:
               msg = "Sorry {0}, that\'s unfortunate!";
               Console.WriteLine(msg,this.name);
               break;
-
       }
     }
-
     private void multiplicationRoute(){
-        int accumulator = 0;
-        for (int i = 0; i < this.decision; i++){
-            accumulator = accumulator * i;
+        int accumulator = 1;
+        for (int i = 1; i < this.number; ++i){
+            accumulator += accumulator * i;
         }
-
+        this.answer = accumulator;
+    }
+    private void additionRoute(){
+        int accumulator = 0;
+        for (int i = 0; i < this.number + 1; ++i){
+            accumulator += i;
+        }
+        this.answer = accumulator;
     }
 
     public static void Main (string[] args) {
@@ -77,5 +85,7 @@ class nameAndNum {
       app.setNumber();
       app.setDecision();
       app.reiterateDecision(app.decision);
+      Console.WriteLine("The total is {0}!",app.answer);
+
     }
 }
