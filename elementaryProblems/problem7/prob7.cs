@@ -5,7 +5,6 @@
 using System;
 class Problem7{
 
-    public const int MAX = 4;
     string table;
 
     private int multiply(int root,int repition){
@@ -27,10 +26,10 @@ class Problem7{
         return equation;
     }
 
-    public setTable(int num){
+    public void setTable(int tableNum, int max) {
         string tableRows = Convert.ToString("");
-        for(int r = 0;r < num; r++){
-            tableRows += this.renderInt(r,MAX);
+        for(int r = 0;r < tableNum + 1; r++) {
+            tableRows += this.renderInt(r,max);
         }
 
         this.table = tableRows;
@@ -38,7 +37,7 @@ class Problem7{
 
     public static void Main(){
         Problem7 app = new Problem7();
-        app.setTable(4);
+        app.setTable(6,6);
 
         Console.WriteLine(app.table);
         //Console.WriteLine(app.multiply(9,9));
