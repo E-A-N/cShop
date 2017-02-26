@@ -7,9 +7,9 @@ class Problem7{
 
     string table;
 
-    private int multiply(int root,int repition){
+    private int multiply(int root,int repetition){
         int result = 0;
-        for(int z = 0; z < repition; z++){
+        for(int z = 0; z < repetition; z++){
             result += root;
         }
 
