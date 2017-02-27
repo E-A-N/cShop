@@ -8,12 +8,11 @@ class Problem7{
     string table;
 
     private int multiply(int root,int repetition){
-        int result = 0;
-        for(int z = 0; z < repetition; z++){
-            result += root;
-        }
 
-        return result;
+        if (repetition == 0){
+            return 0;
+        }
+        return root + multiply(root, repetition - 1);
     }
 
     private string renderInt(int num, int max){
