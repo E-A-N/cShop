@@ -1,16 +1,20 @@
 using System;
 class dynamicArray{
 
-    private int[] arrayMaker(params int[] rArgs){
+    public int[] storage;
+    public int[] backUpStore;
+    public int[] arrayMaker(params int[] rArgs){
         return rArgs;
     }
 
     public static void Main(string[] args){
-        dynamicArray ray = new dynamicArray;
-        ray.arrayMaker(2,4,6,8,10);
+        int[] testArray = {9,9,197};
+        dynamicArray ray = new dynamicArray();
+        ray.storage = ray.arrayMaker(2,4,6,8,10);
+        ray.backUpStore = ray.arrayMaker(testArray);
 
-        for(int i = 0; i < ray.arrayMaker.Length; i++){
-            Console.WriteLine(i);
+        for(int i = 0; i < ray.storage.Length; i++){
+            Console.WriteLine(ray.storage[i]);
         }
     }
 
