@@ -7,23 +7,29 @@
 using System;
 class Multiplication {
 
+    private int[] cloneArray(ref int[] ray1, ref int[] ray2, int iter = 0){
+        ray2[iter] = ray1[iter];
+        return cloneArray(ray1,ray2,iter++)
+    }
+
     public static int calc(params int[] nums){
         //result will is used to assign recursive function calls
         int result;
-        //nextRep will check if next number is 0
-        int nextRep = 1;
-
-        if (nums.Length < 3){
-            int root = nums[0];
-            int rep  = nums[1];
-            result = (rep == 0) ? 0 : root + calc(root, rep - 1);
+        if (nums[nums.Length - 1] == 0){
+                int sumAssign; //total sum
+                int repAssign; //number of times to add iteration
+                int iterAssign; //iterate through arguments
+                int flagAssign; //check if array is ititialized
+                int sum = ray[ray.Length - 4];
+                int rep = ray[ray.Length - 3];
+                int iter = ray[ray.Length - 2];
+                int flag = ray[ray.Length - 1];
+                result = ray[iter] + calc(ray);
         }
         else {
-            Console.WriteLine("Nums is too big!");
-            int queue = nums[nums.Length - 1];
-            int root = nums[0];
-            int rep = nums[queue];
-            result = (rep == 0)  ? 0 : root + calc(root, rep - 1);
+            int[] ray = new int[nums.Length + 3];
+
+            result
         }
         return result;
     }
