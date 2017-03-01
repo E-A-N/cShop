@@ -7,29 +7,44 @@
 using System;
 class Multiplication {
 
-    private int[] cloneArray(ref int[] ray1, ref int[] ray2, int iter = 0){
-        ray2[iter] = ray1[iter];
-        return cloneArray(ray1,ray2,iter++)
+    private void cloneArray(ref int[] ray1, ref int[] ray2, int iter = 0){
+        for(;iter < ray1.Length; iter++){
+            ray2[iter] = ray1[iter];
+        }
     }
 
     public static int calc(params int[] nums){
         //result will is used to assign recursive function calls
         int result;
+
         if (nums[nums.Length - 1] == 0){
-                int sumAssign; //total sum
-                int repAssign; //number of times to add iteration
-                int iterAssign; //iterate through arguments
-                int flagAssign; //check if array is ititialized
-                int sum = ray[ray.Length - 4];
-                int rep = ray[ray.Length - 3];
-                int iter = ray[ray.Length - 2];
-                int flag = ray[ray.Length - 1];
-                result = ray[iter] + calc(ray);
+            int sumAssign = nums.Length - 4; //total sum
+            int repAssign = nums.Length - 3; //number of times to add iteration
+            int iterAssign = nums.Length - 2; //iterate through arguments
+            int flagAssign = nums.Length - 1; //check if array is ititialized
+            int sum = nums[sumAssign];
+            int rep = nums[repAssign];
+            int iter = nums[iterAssign];
+            int flag = nums[flagAssign];
+
+            sum += nums[iter]
+            rep = rep - 1;
+            if (rep - 1 == 0 && iter < sumAssign) {
+                //repition value has been exhausted, move to next item
+                iter++
+            }
+            else if (rep == 0){
+                //the sum is being multiplied by zero
+                return 0;
+            }
+            result = nums[iter] + calc(ray);
         }
         else {
+            //
             int[] ray = new int[nums.Length + 3];
-
-            result
+            this.cloneArray(nums,ray);
+            ray[ray.Length - 1] = 0;
+            result = ray;
         }
         return result;
     }
