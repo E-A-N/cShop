@@ -9,18 +9,18 @@ class Multiplication {
 
     //Use data offset to adjust array for non-result appending items
     private const int dataOFFSET = 2;
-    private static void cloneArray(ref int[] ray1, ref int[] ray2, int iter = 0){
+    private static void cloneArray(ref int[] ray1, ref int[] ray2){
         /*
             Clones array in place with the exception of offset values
             managed within the dataSanitizing method
         */
-        int data = ray1.Length;
-        for(int i = 0; i < data - dataOFFSET; i++){
+        int relevantData = ray1.Length - dataOFFSET;
+        for(int i = 0; i < relevantData; i++){
             ray2[i] = ray1[i];
         }
     }
 
-    private static int[] dataSantizer(params int[] nums){
+private static int[] dataSanitize(params int[] nums){
         /*
             This function appends neccesary arguments to an array of parameters
             to enable a solution using as few data types as possible.
@@ -33,7 +33,7 @@ class Multiplication {
     }
 
     private static int calc(params int[] nums){
-        //result will is used to assign recursive function calls
+        //result is used to assign recursive function calls
         int result;
 
         if (nums[0] == 0 || nums[1] == 0){
@@ -80,6 +80,7 @@ class Multiplication {
         return result;
     }
     public static int multiply(params int[] numbers){
+        numbers = numbers.Length > 2 ? dataSanitize(numbers) : numbers;
         int answer = calc(numbers);
         return answer;
     }
