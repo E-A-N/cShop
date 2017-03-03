@@ -8,21 +8,31 @@ using System;
 class Multiplication {
 
     //Use data offset to adjust array for non-result appending items
-    private static int dataOffset = 2;
-
+    private const int dataOFFSET = 2;
     private static void cloneArray(ref int[] ray1, ref int[] ray2, int iter = 0){
-        for(;iter < ray1.Length - dataOffset; iter++){
-            ray2[iter] = ray1[iter];
+        /*
+            Clones array in place with the exception of offset values
+            managed within the dataSanitizing method
+        */
+        int data = ray1.Length;
+        for(int i = 0; i < data - dataOFFSET; i++){
+            ray2[i] = ray1[i];
         }
     }
 
     private static int[] dataSantizer(params int[] nums){
-        int[] ray = new int[nums.Length + dataOffset];
-        cloneArray(nums,ray);
+        /*
+            This function appends neccesary arguments to an array of parameters
+            to enable a solution using as few data types as possible.
+            This function will allow the muliplication fuction to execute
+            a solution recursively.
+        */
+        int[] ray = new int[nums.Length + dataOFFSET];
+        cloneArray(ref nums,ref ray);
         return ray;
     }
 
-    public static int calc(params int[] nums){
+    private static int calc(params int[] nums){
         //result will is used to assign recursive function calls
         int result;
 
@@ -69,12 +79,15 @@ class Multiplication {
         */
         return result;
     }
-
+    public static int multiply(params int[] numbers){
+        int answer = calc(numbers);
+        return answer;
+    }
     public static void Main(string[] args){
         int[] ray = new int[5];
         ray[0] = 3;
         ray[1] = 3;
-        int num = calc(ray);
+        int num = multiply(ray);
         Console.WriteLine("Hello World? {0}",num);
         Console.WriteLine(ray.Length);
     }
