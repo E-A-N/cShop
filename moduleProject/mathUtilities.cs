@@ -1,6 +1,8 @@
 /*
     Create a multiplication method that can multiply an infinte number of
-    arguments recursively
+    arguments recursively.
+
+    restraints: No loops, No "*" operator, No multiplication methods
 */
 
 
@@ -80,7 +82,11 @@ private static int[] dataSanitize(params int[] nums){
         return result;
     }
     public static int multiply(params int[] numbers){
+
+        //in case of multiple arguments organize array elements
         numbers = numbers.Length > 2 ? dataSanitize(numbers) : numbers;
+
+        //compute the numbers
         int answer = calc(numbers);
         return answer;
     }
