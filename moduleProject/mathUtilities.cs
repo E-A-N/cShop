@@ -9,7 +9,7 @@
 using System;
 class Multiplication {
 
-    //Use data offset to adjust array for non-result appending items
+    //Use data offset to adjusted array for non-result appending items
     private const int dataOFFSET = 5;
     private static void cloneArray(ref int[] specimen, ref int[] clone){
         /*
