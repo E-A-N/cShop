@@ -9,8 +9,8 @@
 using System;
 class Multiplication {
 
-    //Use data offset to adjusted array for non-result appending items
-    private const int dataOFFSET = 5;
+    //Use data offset to adjust array for non-result appending items
+    private const int dataOFFSET = 6;
     private static void cloneArray(ref int[] specimen, ref int[] clone){
         /*
             Clones array in place with the exception of offset values
@@ -45,21 +45,26 @@ class Multiplication {
         //result is used to assign recursive f unction calls
         int result;
         int size = nums.Length;
-        int root = nums[size - 6]; //increment this value by rep
-        int rep = nums[size - 5];  //current number to multiply
-        int sum = nums[size - 4];  //number of times to add iteration
-        int inc = nums[size - 3]; //boolean flag 1 if incrementing else 0
-        int iter = nums[size - 2]; //current multiplication root
-        int bounds = nums[size - 1];
+        int root = size - 6; //increment this value by rep
+        int rep = size - 5;  //current number to multiply
+        int sum = size - 4;  //number of times to add iteration
+        int inc = size - 3; //boolean flag 1 if incrementing else 0
+        int iter = size - 2; //current multiplication root
+        int bounds = size - 1;
 
+        //Sum is currently not being increased, update root with current iteration
+        nums[root] = (nums[inc] == 1) ? nums[root] : nums[iter];
         if (nums[root] == 0 || nums[rep] == 0){
+        //If multiplying by 0 than number final product is always 0
             result = 0;
         }
         else if (nums[iter] < nums[bounds] && nums[rep] > 1){
-            //If iterations are before stopping point and repitions are left
+        //If iterations are before stopping point and repitions are left
             nums[sum] += nums[root];
+            nums[inc] = 1;
 
-            result = 0;
+
+            result = nums[sum] + calc(nums);
 
         }
         else {
@@ -102,7 +107,7 @@ class Multiplication {
     public static int multiply(params int[] numbers){
 
         //in case of multiple arguments organize array elements
-        numbers = numbers.Length > 2 ? dataSanitize(numbers) : numbers;
+        numbers = (numbers.Length > 2) ? dataSanitize(numbers) : numbers;
 
         //compute the numbers
         int answer = calc(numbers);
