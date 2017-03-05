@@ -54,14 +54,20 @@ class Multiplication {
 
         //Sum is currently not being increased, update root with current iteration
         nums[root] = (nums[inc] == 1) ? nums[root] : nums[iter];
+
         if (nums[root] == 0 || nums[rep] == 0){
         //If multiplying by 0 than number final product is always 0
             result = 0;
         }
         else if (nums[iter] < nums[bounds] && nums[rep] > 1){
         //If iterations are before stopping point and repitions are left
+            //check for new recurisve iteration
+            nums[iter] = (nums[rep] - 1 == 0) ? nums[iter]++ : nums[iter];
+            //Add a repition supply of current root value
             nums[sum] += nums[root];
+            num[rep] -= 1;
             nums[inc] = 1;
+
 
 
             result = nums[sum] + calc(nums);
