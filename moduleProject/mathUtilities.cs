@@ -64,9 +64,9 @@ class Multiplication {
 
         if (nums[root] == 0 || nums[rep] == 0){
         //If multiplying by 0 than number final product is always 0
-            result = 0;
+            result = 777;
         }
-        else if (nums[iter] < nums[boundary] && nums[rep] > 1){
+        else if (nums[iter] < boundary && nums[rep] > 1){
         //If iterations are before stopping point and repitions are left
             //check for new recurisve iteration
             nums[iter] = (nums[rep] - 1 == 0) ? nums[iter]++ : nums[iter];
@@ -78,13 +78,13 @@ class Multiplication {
             result = nums[sum] + calc(nums);
 
         }
-        else if (nums[nums[iter]] == nums[boundary] && nums[iter] == size - 1) {
+        else if (nums[iter] == boundary) {
         //get rid of left side of comparison above, only use for explict testing
             result = sum;
         }
         else {
             Console.WriteLine("Error in control flow!!");
-            result = 0;
+            result = 999;
         }
 
         return result;
@@ -92,7 +92,7 @@ class Multiplication {
     public static int multiply(params int[] numbers){
 
         //in case of multiple arguments organize array elements
-        numbers = (numbers.Length > 2) ? dataSanitize(numbers) : numbers;
+        int[] cleanInputs = dataSanitize(numbers);
 
         //compute the numbers
         int answer = calc(numbers);
