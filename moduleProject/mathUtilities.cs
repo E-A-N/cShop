@@ -95,7 +95,7 @@ class Multiplication {
         int[] cleanInputs = dataSanitize(numbers);
 
         //compute the numbers
-        int answer = calc(numbers);
+        int answer = calc(cleanInputs);
         return answer;
     }
     public static void Main(string[] args){
