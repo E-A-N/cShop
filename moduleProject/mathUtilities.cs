@@ -32,12 +32,12 @@ class Multiplication {
         int[] ray = new int[nums.Length + dataOFFSET];
         int size = ray.Length;
         cloneArray(ref nums,ref ray);
-        ray[size - 6] = 0;
-        ray[size - 5] = 0;
-        ray[size - 4] = 0;
-        ray[size - 3] = 0;
-        ray[size - 2] = 0;
-        ray[size - 1] = 0;
+        ray[size - 6] = ray[0]; //root
+        ray[size - 5] = ray[1]; //rep
+        ray[size - 4] = 0; //sum
+        ray[size - 3] = 0; //is incrementing (pseudo boolean)
+        ray[size - 2] = 1; //iteration
+        ray[size - 1] = -77777; //boundary
         return ray;
     }
 
@@ -50,7 +50,14 @@ class Multiplication {
         int sum = size - 4;  //number of times to add iteration
         int inc = size - 3; //boolean flag 1 if incrementing else 0
         int iter = size - 2; //current multiplication root
-        int bounds = size - 1;
+        int boundary = size - 1;
+
+        //debug loops
+        /*
+        for (int x = 0; x > 0; x--){
+            Console.WriteLine("X in array is currently: {0}" , nums[size - x]);
+        }
+        */
 
         //Sum is currently not being increased, update root with current iteration
         nums[root] = (nums[inc] == 1) ? nums[root] : nums[iter];
@@ -59,55 +66,27 @@ class Multiplication {
         //If multiplying by 0 than number final product is always 0
             result = 0;
         }
-        else if (nums[iter] < nums[bounds] && nums[rep] > 1){
+        else if (nums[iter] < nums[boundary] && nums[rep] > 1){
         //If iterations are before stopping point and repitions are left
             //check for new recurisve iteration
             nums[iter] = (nums[rep] - 1 == 0) ? nums[iter]++ : nums[iter];
-            //Add a repition supply of current root value
+
+            //Allocate the repition supply of root value and rep value in array
             nums[sum] += nums[root];
-            num[rep] -= 1;
+            nums[rep] -= 1;
             nums[inc] = 1;
-
-
-
             result = nums[sum] + calc(nums);
 
         }
-        else {
-            result = nums[0] + calc(nums[0],nums[1] - 1);
-        }
-
-        /*
-        if (nums[nums.Length - 1] == 0){
-            int sumAssign = nums.Length - 4; //total sum
-            int repAssign = nums.Length - 3; //number of times to add iteration
-            int iterAssign = nums.Length - 2; //iterate through arguments
-            int flagAssign = nums.Length - 1; //check if array is ititialized
-            int sum = nums[sumAssign];
-            int rep = nums[repAssign];
-            int iter = nums[iterAssign];
-            int flag = nums[flagAssign];
-
-            sum += nums[iter]
-            rep = rep - 1;
-            if (rep - 1 == 0 && iter < sumAssign) {
-                //repition value has been exhausted, move to next item
-                iter++
-            }
-            else if (rep == 0){
-                //the sum is being multiplied by zero
-                return 0;
-            }
-            result = nums[iter] + calc(ray);
+        else if (nums[nums[iter]] == nums[boundary] && nums[iter] == size - 1) {
+        //get rid of left side of comparison above, only use for explict testing
+            result = sum;
         }
         else {
-            //
-            int[] ray = new int[nums.Length + 3];
-            this.cloneArray(nums,ray);
-            ray[ray.Length - 1] = 0;
-            result = ray;
+            Console.WriteLine("Error in control flow!!");
+            result = 0;
         }
-        */
+
         return result;
     }
     public static int multiply(params int[] numbers){
