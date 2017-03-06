@@ -32,12 +32,13 @@ class Multiplication {
         int[] ray = new int[nums.Length + dataOFFSET];
         int size = ray.Length;
         cloneArray(ref nums,ref ray);
-        ray[size - 6] = ray[0]; //root
-        ray[size - 5] = ray[1]; //rep
+        ray[size - 6] = nums[0]; //root
+        ray[size - 5] = nums[1]; //rep
         ray[size - 4] = 0; //sum
         ray[size - 3] = 0; //is incrementing (pseudo boolean)
         ray[size - 2] = 1; //iteration
         ray[size - 1] = -77777; //boundary
+        Console.WriteLine("{0}",string.Join(",",ray));
         return ray;
     }
 
@@ -52,12 +53,6 @@ class Multiplication {
         int iter = size - 2; //current multiplication root
         int boundary = size - 1;
 
-        //debug loops
-        /*
-        for (int x = 0; x > 0; x--){
-            Console.WriteLine("X in array is currently: {0}" , nums[size - x]);
-        }
-        */
 
         //Sum is currently not being increased, update root with current iteration
         nums[root] = (nums[inc] == 1) ? nums[root] : nums[iter];
