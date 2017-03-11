@@ -83,3 +83,4 @@
 -r:"/home/cyborg/.nuget/packages/System.Xml.ReaderWriter/4.3.0/ref/netstandard1.3/System.Xml.ReaderWriter.dll"
 -r:"/home/cyborg/.nuget/packages/System.Xml.XDocument/4.3.0/ref/netstandard1.3/System.Xml.XDocument.dll"
 "/home/cyborg/Desktop/cShop/chess/chessPieces.cs"
+"/home/cyborg/Desktop/cShop/chess/mainGame.cs"

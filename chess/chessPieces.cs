@@ -1,24 +1,21 @@
 using System;
 
-public class ChessPiece {
+namespace ChessGame {
+    public class ChessPiece {
 
-    private int x;
-    private int y;
-    private bool canMove;
+        public int x;
+        public int y;
+        private bool canMove;
 
-    public void init(){
-        this.x = 0;
-        this.y = 0;
-        this.canMove = false;
+        public void init() {
+            this.x = 99;
+            this.y = 0;
+            this.canMove = false;
+        }
     }
 
+    public class Pawn: ChessPiece {
 
-    public static void Main(){
-
-        ChessPiece pawn = new ChessPiece();
-        pawn.init();
-        Console.WriteLine("Hello Robo!");
+        private bool isPawn = true;
     }
-
-
 }
