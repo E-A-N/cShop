@@ -4,17 +4,26 @@ namespace ChessGame{
 
     public class ChessBoard {
 
-        const int OPEN = 0;
-        const int BLOCKED = 1;
-        const int RANGE = 2;
+        private const int OPEN = 0;
+        private const int BLOCKED = 1;
+        private const int RANGE = 2;
 
         public int[,] board;
 
-        private int[,] updateBoard(params int[] pieces){
-            int group = pieces.Length - 1;
-            for (int i = 0; i < group; i++){
-                //hi
-            }
+        private int[,] updateBoard(ChessBoard playField, ChessPiece piece){
+        /*
+            playField parameter should represent the current state of the game in regards to pieces and their positions.
+
+            "dest" parameter should represent the trajectory of a particular piece.
+                dest should equal pieces x and y position on board, plus their mobility and direction
+        */
+            int x = 0;
+            int y = 1;
+            int[] destiny = new int[piece.x + (piece.mobility[x] * piece.direction[x]), piece.y + (piece.mobiilty[y] * piece.direction[y]);
+            return playField.board;
+        }
+        private void updatePiece(ref ChessPiece piece){
+
         }
 
         private int[,] setBoard(){
@@ -33,8 +42,8 @@ namespace ChessGame{
         }
         public static void Main(){
 
-            Pawn p1 = new Pawn();
-            p1.init();
+            ChessPiece p1 = new ChessPiece();
+            p1.init("pawn");
             Console.WriteLine("Hello Robo!");
             Console.WriteLine("The pawns x coordinate is: {0}",p1.x);
 
