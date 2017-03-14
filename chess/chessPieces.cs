@@ -7,9 +7,9 @@ namespace ChessGame {
         public int y;
         public int destiny;
         public string type;
-        private int[] mobility;
-        private int[] direction;
-        private bool canMove;
+        public int[] mobility;
+        public int[] direction;
+        public bool canMove;
 
         public void init(string type) {
             this.x = 0;
@@ -20,9 +20,9 @@ namespace ChessGame {
 
             switch(type){
                 case "pawn":
-                    this.mobility = [0,1];
+                    this.mobility = new int[] {0,1};
                     //modify direction by a product of one for x and/or y coordinate
-                    this.direction = [0,1];
+                    this.direction = new int[] {0,1};
                     break;
             }
         }

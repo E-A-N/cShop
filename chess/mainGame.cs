@@ -19,19 +19,20 @@ namespace ChessGame{
         */
             int x = 0;
             int y = 1;
-            int[] destiny = new int[piece.x + (piece.mobility[x] * piece.direction[x]), piece.y + (piece.mobiilty[y] * piece.direction[y]);
+            //int[] destiny = {2,3};
+            int[] destiny = {piece.x + (piece.mobility[x] * piece.direction[x]), piece.y + (piece.mobility[y] * piece.direction[y])};
             return playField.board;
         }
-        private void updatePiece(ref ChessPiece piece){
-
+        private void updatePiece(ChessPiece piece){
+            Console.WriteLine("Herro Robo");
         }
 
         private int[,] setBoard(){
             int size = 8;
             int[,] board = new int [size,size];
-            for (int y = 0; y < size - 1; y++){
-                for (int x = 0; x < size - 1; x++){
-                    board[x,y] = OPEN;
+            for (int h = 0; h < size - 1; h++){
+                for (int w = 0; w < size - 1; w++){
+                    board[w,h] = OPEN;
                 }
             }
 
