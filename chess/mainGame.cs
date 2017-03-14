@@ -19,8 +19,9 @@ namespace ChessGame{
         */
             int x = 0;
             int y = 1;
-            //int[] destiny = {2,3};
-            int[] destiny = {piece.x + (piece.mobility[x] * piece.direction[x]), piece.y + (piece.mobility[y] * piece.direction[y])};
+            int xVector = piece.x + (piece.mobility[x] * piece.direction[x]);
+            int yVector = piece.y + (piece.mobility[y] * piece.direction[y]);
+            int[] destiny = {xVector, yVector};
             return playField.board;
         }
         private void updatePiece(ChessPiece piece){
