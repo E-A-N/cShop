@@ -17,6 +17,8 @@ namespace ChessGame{
             "dest" parameter should represent the trajectory of a particular piece.
                 dest should equal pieces x and y position on board, plus their mobility and direction
         */
+
+            //x/y values represent position to index within arrays NOT something on a plane
             int x = 0;
             int y = 1;
             int xVector = piece.x + (piece.mobility[x] * piece.direction[x]);
