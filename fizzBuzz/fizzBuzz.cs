@@ -29,7 +29,14 @@ namespace ConsoleApplication {
 
         public static void Main(string[] args){
             int cap = 100;
-            fizzBuzz(cap);
+            bool isFive;
+            bool isFour;
+            bool isBoth;
+            isFive = (5 == 5);
+            isFour = (4 == 4);
+            isBoth = (isFive && isFour);
+            Console.WriteLine(isBoth);
+            //fizzBuzz(cap);
         }
     }
 }

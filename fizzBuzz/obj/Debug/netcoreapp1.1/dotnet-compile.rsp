@@ -1,5 +1,5 @@
---temp-output:/home/cyborg/Desktop/cShop/obj/Debug/netcoreapp1.1/
---out:/home/cyborg/Desktop/cShop/bin/Debug/netcoreapp1.1/cShop.dll
+--temp-output:/home/cyborg/Desktop/cShop/fizzBuzz/obj/Debug/netcoreapp1.1/
+--out:/home/cyborg/Desktop/cShop/fizzBuzz/bin/Debug/netcoreapp1.1/fizzBuzz.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_1
@@ -9,7 +9,7 @@
 --optimize:False
 --debug-type:portable
 --emit-entry-point:True
---output-name:cShop
+--output-name:fizzBuzz
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
@@ -87,4 +87,4 @@
 --reference:/home/cyborg/.nuget/packages/System.Threading.Timer/4.3.0/ref/netstandard1.2/System.Threading.Timer.dll
 --reference:/home/cyborg/.nuget/packages/System.Xml.ReaderWriter/4.3.0/ref/netstandard1.3/System.Xml.ReaderWriter.dll
 --reference:/home/cyborg/.nuget/packages/System.Xml.XDocument/4.3.0/ref/netstandard1.3/System.Xml.XDocument.dll
-/home/cyborg/Desktop/cShop/fizzBuzz.cs
+/home/cyborg/Desktop/cShop/fizzBuzz/fizzBuzz.cs
