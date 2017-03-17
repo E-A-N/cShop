@@ -4,6 +4,7 @@ using System;
     abstractions.
 */
 namespace ConsoleApplication{
+
     public class abstracts {
 
         public static void fizzBuzz(int num){
@@ -35,7 +36,6 @@ namespace ConsoleApplication{
 
         public static void Main(){
                 fizzBuzz(100);
-            }
         }
     }
 }
