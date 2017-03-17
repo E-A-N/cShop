@@ -6,12 +6,12 @@ using System;
 namespace ConsoleApplication{
     public class abstracts {
 
-        public static void main(){
+        public static void fizzBuzz(int num){
             bool multipleOf3;
             bool multipleOf5;
             bool multipleOf3And5;
 
-            for(int x = 0; x < 100; x++){
+            for(int x = 0; x < num; x++){
                 multipleOf3 = (x % 3 == 0);
                 multipleOf5 = (x % 5 == 0);
                 multipleOf3And5 = (multipleOf3 && multipleOf5);
@@ -28,6 +28,13 @@ namespace ConsoleApplication{
                     Console.WriteLine("Fizz!");
                     continue;
                 }
+                Console.WriteLine(x);
+            }
+        }
+
+
+        public static void Main(){
+                fizzBuzz(100);
             }
         }
     }
