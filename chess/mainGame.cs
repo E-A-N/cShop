@@ -35,11 +35,21 @@ namespace ChessGame{
             int[,] board = new int [size,size];
             for (int h = 0; h < size - 1; h++){
                 for (int w = 0; w < size - 1; w++){
-                    board[w,h] = OPEN;
+                    //board[w,h] = OPEN;
+                    board[w,h] = h;
                 }
             }
-
+            this.displayBoard();
             return board;
+        }
+
+        private void displayBoard(){
+            int size = 8;
+            for (int xx = 0; xx < size; xx++){
+                for (int yy = 0; yy < size; yy++){
+                    Console.WriteLine(this.board[yy,xx].ToString() + ' ');
+                }
+            }
         }
         public void init(){
             this.board = this.setBoard();
@@ -53,11 +63,6 @@ namespace ChessGame{
 
             ChessBoard gameStage = new ChessBoard();
             gameStage.init();
-            for(int ii = 0; ii<8; ii++){
-                Console.WriteLine(gameStage.board[ii].ToString() + ' ');
-            }
-            //Console.WriteLine ("{0}",string.Join(",",gameStage.board));
-            //Console.WriteLine();
         }
     }
 }
