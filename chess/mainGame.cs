@@ -52,8 +52,11 @@ namespace ChessGame{
             Console.WriteLine("The pawns x coordinate is: {0}",p1.x);
 
             ChessBoard gameStage = new ChessBoard();
-            //gameStage.init();
-            //Console.WriteLine ("{0}",string.Join(",",CB));
+            gameStage.init();
+            for(int ii = 0; ii<8; ii++){
+                Console.WriteLine(gameStage.board[ii].ToString() + ' ');
+            }
+            //Console.WriteLine ("{0}",string.Join(",",gameStage.board));
             //Console.WriteLine();
         }
     }
