@@ -9,7 +9,9 @@ class Problem7{
 
     private int multiply(int root,int repetition){
 
-        if (repetition == 0){
+        bool noReps = repetition == 0;
+
+        if (noReps){
             return 0;
         }
         return root + multiply(root, repetition - 1);
