@@ -62,9 +62,9 @@ namespace ConsoleApplication{
             Console.WriteLine("Add Last:");
             LinkedList myList2 = new LinkedList();
 
-            myList2.AddFirst("Gary");
-            myList2.AddFirst("Tensue");
-            myList2.AddFirst("Ean");
+            myList2.insertNode("Paragrene");
+            myList2.insertNode("Tensue");
+            myList2.insertNode("Phence");
             myList2.traverseNodes();
 
             Console.ReadLine();
