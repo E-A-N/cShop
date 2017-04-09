@@ -27,7 +27,7 @@ namespace ConsoleApplication{
             head = toAdd;
         }
 
-        public void AddLast(Object data){
+        public void insertEnd(Object data){
             if (head == null){
                 head = new Node();
 
@@ -54,9 +54,11 @@ namespace ConsoleApplication{
             myList1.insertNode("Phencean X");   //last node
             myList1.insertNode("Broton Z"); //mid node
             myList1.insertNode("Slashean Z");   //front node
+            myList1.insertEnd("Yiyay! <3");
+            myList1.insertNode("Psychean X");
+            myList1.insertEnd("Aegis");
             myList1.traverseNodes();    //iterate through all nodes
 
-            
             Console.WriteLine();
 
             Console.WriteLine("Add Last:");
@@ -68,7 +70,7 @@ namespace ConsoleApplication{
             myList2.traverseNodes();
 
             Console.ReadLine();
-            
+
         }
     }
 }
