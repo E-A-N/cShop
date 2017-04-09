@@ -10,14 +10,15 @@ namespace ConsoleApplication{
     public class LinkedList {
         private Node head;
 
-        public void printAllNodes(){
+        public void traverseNodes(){
             Node current = head;
             while (current != null) {
                 Console.WriteLine(current.data);
+                current = current.next;
             }
         }
 
-        public void AddFirst(Object data){
+        public void insertNode(Object data){
             Node toAdd = new Node();
 
             toAdd.data = data;
@@ -50,22 +51,24 @@ namespace ConsoleApplication{
             Console.WriteLine("Add First:");
             LinkedList myList1 = new LinkedList();
 
-            myList1.AddFirst("Hello");
-            myList1.AddFirst("Magical");
-            myList1.AddFirst("World");
-            myList1.printAllNodes();
+            myList1.insertNode("Phencean X");   //last node
+            myList1.insertNode("Broton Z"); //mid node
+            myList1.insertNode("Slashean Z");   //front node
+            myList1.traverseNodes();    //iterate through all nodes
 
+            
             Console.WriteLine();
 
             Console.WriteLine("Add Last:");
             LinkedList myList2 = new LinkedList();
 
-            myList2.AddFirst("Gary");
-            myList2.AddFirst("Tensue");
-            myList2.AddFirst("Ean");
-            myList2.printAllNodes();
+            myList2.insertNode("Paragrene");
+            myList2.insertNode("Tensue");
+            myList2.insertNode("Phence");
+            myList2.traverseNodes();
 
             Console.ReadLine();
+            
         }
     }
 }
